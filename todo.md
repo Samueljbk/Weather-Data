@@ -7,10 +7,10 @@
 - [x] **Activate the virtual environment**: Make sure your environment is activated for package installation.
 
 ## 2. Install Necessary Packages
-- [ ] **Install Flask**: `pip install flask`
-- [ ] **Install requests**: `pip install requests`
-- [ ] **Install Redis and the Python Redis client**: `pip install redis`
-- [ ] **Install python-dotenv**: `pip install python-dotenv` (for environment variables)
+- [x] **Install Flask**: `pip install flask`
+- [x] **Install requests**: `pip install requests`
+- [x] **Install Redis and the Python Redis client**: `pip install redis`
+- [x] **Install python-dotenv**: `pip install python-dotenv` (for environment variables)
 - [ ] **(Optional) Install flask-limiter**: `pip install flask-limiter` (for rate limiting)
 
 ## 3. Project Directory Structure
