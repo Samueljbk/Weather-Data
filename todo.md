@@ -30,7 +30,7 @@
 - [ ] Test the Redis connection with a basic Python script to confirm it works.
 
 ## 6. Configure Environment Variables
-- [ ] Add my Visual Crossing API key to the `.env` file and use `python-dotenv` to load it in the app.
+- [x] Add my Visual Crossing API key to the `.env` file and use `python-dotenv` to load it in the app.
 - [ ] Add the Redis connection info to `.env` as well and ensure the app can access it.
 
 ## Error Handling and Rate Limiting
