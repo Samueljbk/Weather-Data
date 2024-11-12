@@ -1,10 +1,10 @@
 # Project Skeleton To-Do List for Weather API
 
 ## 1. Set Up Project Environment
-- [ ] **Create a new GitHub repository**: Name it something like `weather-api-project`.
-- [ ] **Clone the repository**: Use Git to clone the repository to your local machine.
-- [ ] **Set up a virtual environment**: Use `venv` in Python to create a virtual environment.
-- [ ] **Activate the virtual environment**: Make sure your environment is activated for package installation.
+- [x] **Create a new GitHub repository**: Name it something like `weather-api-project`.
+- [x] **Clone the repository**: Use Git to clone the repository to your local machine.
+- [x] **Set up a virtual environment**: Use `venv` in Python to create a virtual environment.
+- [x] **Activate the virtual environment**: Make sure your environment is activated for package installation.
 
 ## 2. Install Necessary Packages
 - [ ] **Install Flask**: `pip install flask`
