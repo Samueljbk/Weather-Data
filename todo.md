@@ -17,12 +17,12 @@
 ## 3. Set Up the Project Structure
 - [x] Make a main folder to keep all my project files organized.
 - [x] Inside that folder, create `app.py` for the main FastAPI app.
-- [ ] Set up a `.env` file to store sensitive stuff like API keys.
-- [ ] Create a `requirements.txt` file to keep track of all my dependencies.
+- [x] Set up a `.env` file to store sensitive stuff like API keys.
+- [x] Create a `requirements.txt` file to keep track of all my dependencies.
 
 ## 4. Build the Basic FastAPI App
-- [ ] Write a simple FastAPI app in `app.py` with a route that returns hardcoded weather data.
-- [ ] Run and test the app locally using: `uvicorn app:app --reload` to make sure it works.
+- [x] Write a simple FastAPI app in `app.py` with a route that returns hardcoded weather data.
+- [x] Run and test the app locally using: `uvicorn app:app --reload` to make sure it works.
 
 ## 5. Set Up Redis for Caching
 - [ ] Install Redis on my computer following the guide for my operating system.
