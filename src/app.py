@@ -49,6 +49,6 @@ async def get_weather(city: str):
         return weather_info
     
     except requests.exceptions.RequestException as e:
-        raise HTTPException(status_code=500, detail=f"Error fetching data from API: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error fetching data from the weather service")
     except redis.exceptions.RedisError as e:
-        raise HTTPException(status_code=500, detail=f"Error connecting to Redis: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error connecting to the caching service")
