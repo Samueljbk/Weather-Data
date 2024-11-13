@@ -45,3 +45,43 @@ The main goal was to develop a functional and optimized API while deepening my u
   "temperature": 50.9,
   "description": "Partially cloudy"
 }
+
+### Prerequisites
+- **Python 3.7+**: Make sure you have Python installed on your system.
+- **Redis**: Ensure that Redis is installed and running on your local machine.
+
+### Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/weather-api-project.git
+   cd weather-api-project
+
+### 2. Set Up a Virtual Environment
+- On **macOS/Linux**:
+  ```bash
+  python -m venv venv
+  source venv/bin/activate
+
+- On **Windows**:
+  ```bash
+  python -m venv venv
+  venv\Scripts\activate
+
+### 3. Install Dependencies
+Run the following command to install all the required packages:
+```bash
+pip install -r requirements.txt
+
+### 4. Set Up Environment Variables
+Create a `.env` file in the project root and add your API key and Redis configuration:
+```env
+VISUAL_CROSSING_API_KEY=your_api_key_here
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_DB=0
+
+### 5. Run the API
+Start the FastAPI app using Uvicorn:
+```bash
+uvicorn src.app:app --reload
