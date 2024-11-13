@@ -25,8 +25,8 @@
 - [x] Run and test the app locally using: `uvicorn app:app --reload` to make sure it works.
 
 ## 5. Set Up Redis for Caching
-- [ ] Install Redis on my computer following the guide for my operating system.
-- [ ] Start the Redis server and make sure it’s running.
+- [x] Install Redis on my computer following the guide for my operating system.
+- [x] Start the Redis server and make sure it’s running.
 - [ ] Test the Redis connection with a basic Python script to confirm it works.
 
 ## 6. Configure Environment Variables
