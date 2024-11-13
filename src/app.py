@@ -2,6 +2,7 @@ import os
 import requests
 import redis
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables from .env
@@ -48,7 +49,13 @@ async def get_weather(city: str):
         redis_client.setex(city, 12 * 60 * 60, str(weather_info))
         return weather_info
     
-    except requests.exceptions.RequestException as e:
-        raise HTTPException(status_code=500, detail=f"Error fetching data from the weather service")
-    except redis.exceptions.RedisError as e:
-        raise HTTPException(status_code=500, detail=f"Error connecting to the caching service")
+    except requests.exceptions.RequestException:
+        return JSONResponse(
+            status_code=500,
+            content={"error": "Error fetching data from the weather service."}
+        )
+    except redis.exceptions.RedisError:
+        return JSONResponse(
+            status_code=500,
+            content={"error": "Error connecting to the caching service."}
+        )
