@@ -8,7 +8,11 @@ load_dotenv()  # Load environment variables from .env
 
 app = FastAPI()
 
-redis_client = redis.Redis(host='localhost', port=6379,)
+redis_client = redis.Redis(
+    host=os.getenv("REDIS_HOST"),
+    port=int(os.getenv("REDIS_PORT")),
+    db=int(os.getenv("REDIS_DB"))
+)
 
 @app.get("/weather")
 async def get_weather(city: str):
