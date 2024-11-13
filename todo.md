@@ -31,7 +31,7 @@
 
 ## 6. Configure Environment Variables
 - [x] Add my Visual Crossing API key to the `.env` file and use `python-dotenv` to load it in the app.
-- [ ] Add the Redis connection info to `.env` as well and ensure the app can access it.
+- [x] Add the Redis connection info to `.env` as well and ensure the app can access it.
 
 ## Error Handling and Rate Limiting
 - [ ] Think through how I want to handle errors, like when the weather API doesn’t respond or there’s bad input.
