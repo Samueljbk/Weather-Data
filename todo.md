@@ -27,7 +27,7 @@
 ## 5. Set Up Redis for Caching
 - [x] Install Redis on my computer following the guide for my operating system.
 - [x] Start the Redis server and make sure it’s running.
-- [ ] Test the Redis connection with a basic Python script to confirm it works.
+- [x] Test the Redis connection with a basic Python script to confirm it works.
 
 ## 6. Configure Environment Variables
 - [x] Add my Visual Crossing API key to the `.env` file and use `python-dotenv` to load it in the app.
