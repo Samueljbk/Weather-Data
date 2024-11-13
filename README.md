@@ -45,7 +45,3 @@ The main goal was to develop a functional and optimized API while deepening my u
   "temperature": 50.9,
   "description": "Partially cloudy"
 }
-
-### Prerequisites
-- **Python 3.7+**: Make sure you have Python installed on your system.
-- **Redis**: Ensure that Redis is installed and running on your local machine.
