@@ -19,7 +19,10 @@ redis_client = redis.Redis(
 async def get_weather(city: str):
     api_key = os.getenv("VISUAL_CROSSING_API_KEY")
     if not api_key:
-        raise HTTPException(status_code = 500, detail="Missing API key for Visual Crossing")
+        return JSONResponse(
+            status_code=500,
+            content={"error:" "Missing API key for Visual Crossing"}
+        )
     
     base_url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline"
     full_url = f"{base_url}/{city}?key={api_key}"
@@ -32,18 +35,28 @@ async def get_weather(city: str):
         return eval(cached_data) # Convert string back to dictionary
     
     print("Fetching new data for: ", city)
+
     try:
         response = requests.get(full_url)
+        if response.status_code == 400:
+            return JSONResponse(
+                status_code=404,
+                content={"error": f"City '{city}' not found. Please check the city name and try again."}
+            )
         response.raise_for_status()  # Raise an error for bad responses (4xx or 5xx)
         data = response.json()
+
+        if "currentConditions" not in data:
+            return JSONResponse(
+                status_code=404,
+                content={"error": "City not found or invalid response from API"}
+            )
+        
         weather_info =  {
             "city": city,
             "temperature": data["currentConditions"]["temp"],
             "description": data["currentConditions"]["conditions"]
         }
-
-        if "currentConditions" not in data:
-            raise HTTPException(status_code=404, detail="City not found or invalid response from API")
 
         #12 hour expiration for cached weather data (in seconds)
         redis_client.setex(city, 12 * 60 * 60, str(weather_info))
