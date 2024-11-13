@@ -1,0 +1,8 @@
+sudo service redis-server start
+
+redis-cli ping
+    - Expected response: PONG
+
+redis-cli
+    >KEYS * 
+    # This shows cached city names
