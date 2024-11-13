@@ -1,7 +1,7 @@
 import os
 import requests
 import redis
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables from .env
@@ -17,6 +17,9 @@ redis_client = redis.Redis(
 @app.get("/weather")
 async def get_weather(city: str):
     api_key = os.getenv("VISUAL_CROSSING_API_KEY")
+    if not api_key:
+        raise HTTPException(status_code = 500, detail="Missing API key for Visual Crossing")
+    
     base_url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline"
     full_url = f"{base_url}/{city}?key={api_key}"
 
@@ -38,9 +41,14 @@ async def get_weather(city: str):
             "description": data["currentConditions"]["conditions"]
         }
 
+        if "currentConditions" not in data:
+            raise HTTPException(status_code=404, detail="City not found or invalid response from API")
+
         #12 hour expiration for cached weather data (in seconds)
         redis_client.setex(city, 12 * 60 * 60, str(weather_info))
         return weather_info
+    
     except requests.exceptions.RequestException as e:
-        return {"error": str(e)}
-
+        raise HTTPException(status_code=500, detail=f"Error fetching data from API: {str(e)}")
+    except redis.exceptions.RedisError as e:
+        raise HTTPException(status_code=500, detail=f"Error connecting to Redis: {str(e)}")
