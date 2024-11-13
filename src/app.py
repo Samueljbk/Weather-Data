@@ -23,9 +23,11 @@ async def get_weather(city: str):
     # Check if data for the city is already in the cache
     cached_data = redis_client.get(city)
     if cached_data:
+        print("Using cached data for: ", city)
         # If cached data exists -> return it
         return eval(cached_data) # Convert string back to dictionary
-
+    
+    print("Fetching new data for: ", city)
     try:
         response = requests.get(full_url)
         response.raise_for_status()  # Raise an error for bad responses (4xx or 5xx)
